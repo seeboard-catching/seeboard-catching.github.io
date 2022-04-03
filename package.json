@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "BUILD_PATH='./docs' react-scripts build",
+    "deploy": "npm run build && cp ./CNAME ./docs/CNAME  && git commit . -m 'Déploy' && git push origin master && git add ./docs && git commit ./docs -m 'Deploy Application' &&  git subtree push --prefix=docs application master",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
